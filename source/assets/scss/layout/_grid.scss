@@ -1,0 +1,39 @@
+%row{
+  @extend %clearfix;
+  margin-left: -$gridGutter;
+  margin-right: -$gridGutter;
+}
+
+%col-1 { width: 8.3333%;  }
+%col-2 { width: 16.6666%; }
+%col-3 { width: 25%;      }
+%col-4 { width: 33.3333%; }
+%col-5 { width: 41.6665%; }
+%col-6 { width: 50%;      }
+%col-7 { width: 58.3331%; }
+%col-8 { width: 66.6664%; }
+%col-9 { width: 74.9997%; }
+%col-10{ width: 83.333%;  }
+%col-11{ width: 91.6663%; }
+%col-12{ width: 100%;     }
+
+@for $i from 1 through 12 {
+  %col-#{$i}{
+    float: left;
+    padding-left: $gridGutter;
+    padding-right: $gridGutter;
+  }
+}
+
+%offset-1 { margin-left: 8.3333%;  }
+%offset-2 { margin-left: 16.6666%; }
+%offset-3 { margin-left: 25%;      }
+%offset-4 { margin-left: 33%;      }
+%offset-5 { margin-left: 41.6665%; }
+%offset-6 { margin-left: 50%;      }
+%offset-7 { margin-left: 58.3331%; }
+%offset-8 { margin-left: 66.6664%; }
+%offset-9 { margin-left: 74.9997%; }
+%offset-10{ margin-left: 83.333%;  }
+%offset-11{ margin-left: 91.6663%; }
+%offset-12{ margin-left: 100%;     }

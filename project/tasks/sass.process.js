@@ -1,0 +1,22 @@
+(function() {
+  'use strict';
+
+  var builder = function($) {
+
+    $.gulp.task('scss:process', function() {
+      var options = {
+        includePaths: $.path.sass
+      };
+
+      return $.gulp.src('./source/assets/scss/app.scss')
+        .pipe($.$gulp.sass(options).on('error', $.$gulp.sass.logError))
+        .pipe($.$gulp.autoprefixer({
+          browsers: $.config.autoprefixerConfig,
+          cascade: true
+        }))
+        .pipe($.gulp.dest($.config.root + '/assets/css'));
+    });
+  };
+
+  module.exports = builder;
+})();

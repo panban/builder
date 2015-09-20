@@ -1,0 +1,90 @@
+// ------------------------------------------
+  // Base
+//-------------------------------------------
+$baseColor: #262626;
+$baseFontSize: 16px;
+$baseFontFamily: Arial, sans-serif;
+
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  min-height: 100%;
+}
+
+body{
+  font: $baseFontSize/1 $baseFontFamily;
+  background: #fff;
+  color: $baseColor;
+}
+
+a{
+  background: transparent;
+}
+
+article, aside, details,
+figcaption, figure, footer,
+header, hgroup, main,
+nav, section, summary{
+  display: block;
+}
+
+p, ul, ol, dl, dd,
+h1, h2, h3, h4, h5, h6,
+blockquote, fieldset{
+  margin: 0;
+}
+
+ul, ol, fieldset{
+  padding: 0;
+}
+
+
+fieldset, img{
+  border: 0;
+}
+
+li{
+  list-style: none;
+}
+
+// ------------------------------------------
+  // Typography
+//-------------------------------------------
+h1, h2, h3, h4, h5, h6{
+  font: inherit;
+}
+
+textarea, select{
+  color: inherit;
+  font: inherit;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"]{
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}
+
+
+// ------------------------------------------
+  // Tables
+//-------------------------------------------
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+// ------------------------------------------
+  // Other
+//-------------------------------------------
+q{
+  quotes: '«' '»';
+}

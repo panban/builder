@@ -1,0 +1,27 @@
+// Примесь для предоставления простого API вложенности
+
+// ------------------------------------------
+// example:
+// ------------------------------------------
+//  .foo{
+//   @include when-inside('.no-opacity') {
+//     display: none;
+//   }
+//  }
+// ------------------------------------------
+// return:
+// ------------------------------------------
+// .foo{
+//   .no-opacity & {
+//     display: none;
+//   }
+// }
+
+// @access public
+// @param {String} $selector - Selector
+
+@mixin when-inside($selector) {
+  #{$selector} & {
+    @content;
+  }
+}

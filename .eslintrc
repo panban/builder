@@ -1,0 +1,9 @@
+{
+  "rules": {
+      "quotes": [1, "single"],
+      "linebreak-style": [1, "unix"]
+  },
+  "globals": {
+    "angular": true
+  },
+}

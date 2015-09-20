@@ -1,0 +1,23 @@
+.divider{
+  display: table;
+  width: 100%;
+  
+  &_base,
+  &_side{
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  &_side{
+    width: 1%;
+  }
+
+  &--middle{
+    vertical-align: middle;
+
+    &_base,
+    &_side{
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+// Затемнение цвета
+
+// ------------------------------------------
+// example:
+// ------------------------------------------
+//  .foo{
+//    background: shade(#ccc, 10%);
+//  }
+
+// @access public
+// @param {Color} $color - цвет для затемнения
+// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
+// @return {Color}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

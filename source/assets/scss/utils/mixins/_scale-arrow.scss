@@ -1,0 +1,41 @@
+// ------------------------------------------
+// example:
+// ------------------------------------------
+//  .foo{
+//    @include scaleArrow('up', 20, 25, #333);
+//  }
+
+// @access public
+// @param {String} $direction
+// @param {Number} $height
+// @param {Number} $height
+// @param {Color} $color
+// @return {Properties}
+
+@mixin scaleArrow($direction, $height, $width, $color) {
+  $pxH: $height + px;
+  $pxW: $width + px;
+  // $remSize: ($size /10)+rem;
+  
+  #{width}: 0;
+  #{height}: 0;
+  border: $pxH solid transparent;
+  // border: $remSize solid transparent;
+
+  @if $direction == "left"{
+    border-right: $pxW solid $color;
+    border-left-width: 0;
+
+  }@else if $direction == "right"{
+    border-left: $pxW solid $color;
+    border-right-width: 0;
+
+  }@else if $direction == "up"{
+    border-bottom: $pxW solid $color;
+    border-top-width: 0;
+
+  }@else if $direction == "down"{
+    border-top: $pxW solid $color;
+    border-bottom-width: 0;
+  }
+}
