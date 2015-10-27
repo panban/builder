@@ -14,7 +14,8 @@
           browsers: $.config.autoprefixerConfig,
           cascade: true
         }))
-        .pipe($.gulp.dest($.config.root + '/assets/css'));
+        .pipe($.gulp.dest($.config.root + '/assets/css'))
+        .pipe($.browserSync.stream());
     });
   };
 

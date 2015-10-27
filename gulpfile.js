@@ -15,9 +15,7 @@ var $ = {
   gulp: require('gulp'),
   $gulp: require('gulp-load-plugins')({
     lazy: false,
-    rename: {
-      'gulp-angular-templatecache': 'templateCache'
-    }
+    rename: {}
   })
 };
 
@@ -42,8 +40,6 @@ $.gulp.task('default', function() {
       'js:process',
       'js:foundation',
       'scss:process',
-      'template:process',
-      'template:cache',
       'copy:resource',
       'copy:things'
     ],
@@ -61,8 +57,6 @@ $.gulp.task('build', function(cb) {
       'js:release',
       'js:foundation',
       'scss:release',
-      'template:process',
-      'template:cache',
       'copy:resource',
       'copy:things'
     ],

@@ -17,12 +17,15 @@
         }
       };
 
-      var buildWatcher = function(match, taskName) {
+      var buildWatcher = function(match, taskName, enableReload) {
+        $.browserSync.reload
         return {
           match: match,
           fn: function(event, file) {
             $.gulp.start(taskName, function() {
-              $.browserSync.reload();
+              if (!enableReload) {
+                $.browserSync.reload();
+              }
             });
           },
           options: {
@@ -31,10 +34,10 @@
         };
       };
 
-      options.files.push(buildWatcher(['./source/index.html'], 'template:process'));
-      options.files.push(buildWatcher($.path.template, 'template:cache'));
+      options.files.push(buildWatcher(['./source/assets/images/**/*.{png|jpg|gif}'], 'copy:image'));
       options.files.push(buildWatcher($.path.app, 'js:process'));
-      options.files.push(buildWatcher(['./source/**/*.scss'], 'scss:process'));
+      options.files.push(buildWatcher(['./source/**/*.scss'], 'scss:process', true));
+      options.files.push(buildWatcher(['./source/templates/**/*.jade'], 'template:jade'));
 
       $.browserSync(options, function(err, bs) {
         console.log(bs.options.getIn(['urls', 'local']));
