@@ -2,8 +2,8 @@
   'use strict';
 
   var template = [
-    './source/components/**/*.html',
-    './source/templates/**/*.html'
+    '!./source/templates/temp/**/*.jade',
+    './source/templates/**/*.jade'
   ];
 
   module.exports = template;

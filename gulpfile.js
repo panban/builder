@@ -15,20 +15,13 @@ var $ = {
   gulp: require('gulp'),
   $gulp: require('gulp-load-plugins')({
     lazy: false,
-    rename: {}
+    rename: {
+      'gulp-replace-task': 'replace'
+    }
   })
 };
 
 $.debug = true;
-$.preprocess = {
-  options: {
-    context: {
-      version: '?rel=' + $.package.version,
-      suffix: '.min',
-      debug: $.debug
-    }
-  }
-};
 
 $.path.task.forEach(function(taskPath) {
   var builder = require(taskPath)($);
@@ -40,8 +33,8 @@ $.gulp.task('default', function() {
       'js:process',
       'js:foundation',
       'scss:process',
-      'copy:resource',
-      'copy:things'
+      'jade:process',
+      'copy:resource'
     ],
     'service:server'
   );
@@ -57,9 +50,10 @@ $.gulp.task('build', function(cb) {
       'js:release',
       'js:foundation',
       'scss:release',
-      'copy:resource',
-      'copy:things'
+      'jade:process',
+      'copy:resource'
     ],
+    'service:server',
     function(cb) {
       console.log('Built has been completed.');
     }

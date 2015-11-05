@@ -7,11 +7,7 @@
     patterns.push({match: '%=version=%', replace: '?rel=' + $.package.version});
 
     $.gulp.task('jade:process', function() {
-      if ($.debug) {
-        patterns.push({match: '%=suffix=%', replace: ''});
-      } else {
-        patterns.push({match: '%=suffix=%', replace: '.min'});
-      }
+      patterns.push({match: '%=suffix=%', replace: $.debug ? '' : '.min'});
 
       return $.gulp.src($.path.template)
         .pipe($.$gulp.plumber())
