@@ -12,6 +12,7 @@
         port: $.config.browserSyncConfig.port,
         tunnel: $.config.browserSyncConfig.tunnel,
         notify: $.config.browserSyncConfig.useNotifyInBrowser,
+        online: true,
         server: {
           baseDir: $.config.root
         }
