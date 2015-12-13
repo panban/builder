@@ -5,7 +5,7 @@
 
     $.gulp.task('copy:resource', function() {
 
-      return $.gulp.src('./source/static/resources/**/*.*')
+      return $.gulp.src('./source/resources/**/*.*')
         .pipe($.$gulp.changed($.config.root))
         .pipe($.gulp.dest($.config.root))
     });

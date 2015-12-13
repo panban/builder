@@ -35,10 +35,10 @@
         };
       };
 
-      options.files.push(buildWatcher(['./source/assets/images/**/*.{png|jpg|gif}'], 'copy:image'));
+      options.files.push(buildWatcher(['./source/images/**/*.{png|jpg|gif}'], 'copy:image'));
       options.files.push(buildWatcher($.path.app, 'js:process'));
       options.files.push(buildWatcher(['./source/**/*.scss'], 'scss:process', true));
-      options.files.push(buildWatcher(['./source/templates/**/*.jade'], 'template:jade'));
+      options.files.push(buildWatcher(['./source/templates/**/*.jade'], 'jade:process'));
 
       $.browserSync(options, function(err, bs) {
         console.log(bs.options.getIn(['urls', 'local']));

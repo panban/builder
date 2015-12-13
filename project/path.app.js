@@ -2,7 +2,7 @@
   'use strict';
 
   var app = [
-    './source/assets/js/app.js'
+    './source/js/app.js'
   ];
 
   module.exports = app;

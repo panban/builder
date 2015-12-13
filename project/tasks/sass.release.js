@@ -8,7 +8,7 @@
         includePaths: $.path.sass
       };
 
-      return $.gulp.src('./source/assets/scss/app.scss')
+      return $.gulp.src('./source/scss/app.scss')
         .pipe($.$gulp.sass(options).on('error', $.$gulp.sass.logError))
         .pipe($.$gulp.autoprefixer({
           browsers: $.config.autoprefixerConfig
