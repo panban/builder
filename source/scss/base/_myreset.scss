@@ -1,26 +1,25 @@
-// ------------------------------------------
-  // Base
-//-------------------------------------------
-$baseColor: #262626;
-$baseFontSize: 16px;
-$baseFontFamily: Arial, sans-serif;
-
-*{
+html {
   box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body{
+  font: $baseTextSize/1 $baseFont;
+  background: #fff;
+  color: $baseTextColor;
 }
 
 html, body{
   min-height: 100%;
 }
 
-body{
-  font: $baseFontSize/1 $baseFontFamily;
-  background: #fff;
-  color: $baseColor;
-}
-
 a{
-  background: transparent;
+  background: transparent; // IE10
 }
 
 article, aside, details,
