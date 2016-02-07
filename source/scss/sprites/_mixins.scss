@@ -1,0 +1,30 @@
+$spritesheet-icons: ($logo, );
+$spritesheet-pe: ($price1, $bg_about2);
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(../images/#{$sprite-image});
+}
+
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .icon-#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
+
+@mixin sprites-before($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .with-icon-#{$sprite-name}:before {
+      content: '';
+      display: block;
+      @include sprite($sprite);
+    }
+  }
+}
+
+@include sprites($spritesheet-icons);
+@include sprites-before($spritesheet-pe);

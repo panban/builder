@@ -8,6 +8,7 @@
     './project/tasks/js.foundation.js',
     './project/tasks/js.process.js',
     './project/tasks/js.release.js',
+    './project/tasks/spritesmith.process.js',
     './project/tasks/service.server.js',
     './project/tasks/service.clean.js',
     './project/tasks/copy.resource.js',
