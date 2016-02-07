@@ -6,6 +6,7 @@ var $ = {
     foundation: require('./project/path.foundation.js'),
     app: require('./project/path.app.js'),
     sass: require('./project/path.sass.js'),
+    sprite: require('./project/path.sprite.js'),
     template: require('./project/path.template.js'),
     task: require('./project/path.task.js')
   },
@@ -13,10 +14,12 @@ var $ = {
   sequence: require('run-sequence'),
   rimraf: require('rimraf'),
   gulp: require('gulp'),
+  merge: require('merge-stream'),
   $gulp: require('gulp-load-plugins')({
     lazy: false,
     rename: {
-      'gulp-replace-task': 'replace'
+      'gulp-replace-task': 'replace',
+      'gulp.spritesmith': 'spritesmith'
     }
   })
 };
@@ -29,6 +32,7 @@ $.path.task.forEach(function(taskPath) {
 
 $.gulp.task('default', function() {
   $.sequence(
+    'spritesmith:process',
     [
       'js:process',
       'js:foundation',
@@ -45,6 +49,7 @@ $.gulp.task('build', function(cb) {
 
   $.sequence(
     'service:clean',
+    'spritesmith:process',
     'js:lint',
     [
       'js:release',
