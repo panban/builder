@@ -35,7 +35,6 @@
         };
       };
 
-      options.files.push(buildWatcher(['./source/images/**/*.{png|jpg|gif}'], 'copy:image'));
       options.files.push(buildWatcher($.path.app, 'js:process'));
       options.files.push(buildWatcher(['./source/**/*.scss'], 'scss:process', true));
       options.files.push(buildWatcher(['./source/templates/**/*.jade'], 'jade:process'));
