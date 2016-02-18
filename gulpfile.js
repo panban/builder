@@ -1,61 +1,40 @@
+'use strict';
+
 var $ = {
   package: require('./package.json'),
-  config: require('./project/config.js'),
+  config: require('./gulp/config'),
   path: {
-    system: require('./project/path.system.js'),
-    foundation: require('./project/path.foundation.js'),
-    app: require('./project/path.app.js'),
-    sass: require('./project/path.sass.js'),
-    template: require('./project/path.template.js'),
-    task: require('./project/path.task.js')
+    task: require('./gulp/path.tasks'),
+    template: require('./gulp/path.template'),
+    foundation: require('./gulp/path.foundation'),
+    app: require('./gulp/path.app')
   },
-  browserSync: require('browser-sync'),
-  sequence: require('run-sequence'),
-  rimraf: require('rimraf'),
   gulp: require('gulp'),
-  $gulp: require('gulp-load-plugins')({
-    lazy: false,
+  rimraf: require('rimraf'),
+  browserSync: require('browser-sync').create(),
+  gp: require('gulp-load-plugins')({
     rename: {
       'gulp-replace-task': 'replace'
     }
   })
 };
 
-$.debug = true;
-
 $.path.task.forEach(function(taskPath) {
-  var builder = require(taskPath)($);
+  require(taskPath)($);
 });
 
-$.gulp.task('default', function() {
-  $.sequence(
-    [
-      'js:process',
-      'js:foundation',
-      'scss:process',
-      'jade:process',
-      'copy:resource'
-    ],
-    'service:server'
-  );
-});
+$.dev = true;
 
-$.gulp.task('build', function(cb) {
-  $.debug = false;
-
-  $.sequence(
-    'service:clean',
-    'js:lint',
-    [
-      'js:release',
-      'js:foundation',
-      'scss:release',
-      'jade:process',
-      'copy:resource'
-    ],
-    'service:server',
-    function(cb) {
-      console.log('Built has been completed.');
-    }
-  );
-});
+$.gulp.task('default', $.gulp.series(
+  'clean',
+  $.gulp.parallel(
+    'sass',
+    'jade',
+    'js.foundation',
+    'js.process'
+  ),
+  $.gulp.parallel(
+    'watch',
+    'serve'
+  )
+));
