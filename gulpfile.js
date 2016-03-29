@@ -1,16 +1,22 @@
 'use strict';
 
-var $ = {
+// PROJECT
+// - - - - - - - - - - - - - - -
+let $ = {
+  dev: true,
   package: require('./package.json'),
   config: require('./gulp/config'),
   path: {
+    app: require('./gulp/path.app'),
     task: require('./gulp/path.tasks'),
-    template: require('./gulp/path.template'),
     foundation: require('./gulp/path.foundation'),
-    app: require('./gulp/path.app')
+    template: require('./gulp/path.template'),
+    sass: require('./gulp/path.sass')
   },
   gulp: require('gulp'),
   rimraf: require('rimraf'),
+  webpack: require('webpack'),
+  webpackConfigFn: require('./webpack.config'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')({
     rename: {
@@ -19,16 +25,15 @@ var $ = {
   })
 };
 
-$.path.task.forEach(function(taskPath) {
-  require(taskPath)($);
-});
-
-$.dev = true;
+// TASKS
+// - - - - - - - - - - - - - - -
+$.path.task.forEach(taskPath => require(taskPath)($));
 
 $.gulp.task('default', $.gulp.series(
   'clean',
   $.gulp.parallel(
     'sass',
+    // 'sass.foundation',
     'jade',
     'js.foundation',
     'js.process'
@@ -36,5 +41,17 @@ $.gulp.task('default', $.gulp.series(
   $.gulp.parallel(
     'watch',
     'serve'
+  )
+));
+
+$.gulp.task('build', $.gulp.series(
+  cb => {$.dev = false; cb()},
+  'clean',
+  $.gulp.parallel(
+    'sass',
+    // 'sass.foundation',
+    'jade',
+    'js.foundation',
+    'js.process'
   )
 ));

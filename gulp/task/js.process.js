@@ -1,13 +1,25 @@
 'use strict';
 
+let path = require('path'),
+    log = require('gulplog');
+
 module.exports = function($) {
-  $.gulp.task('js.process', function() {
-    return $.gulp.src($.path.app)
-      .pipe($.gp.if($.dev, $.gp.sourcemaps.init()))
-      .pipe($.gp.concat('app.js'))
-      .pipe($.gp.if($.dev, $.gp.sourcemaps.write()))
-      .pipe($.gp.if(!$.dev, $.gp.uglify()))
-      .pipe($.gp.if(!$.dev, $.gp.rename({ suffix: '.min' })))
-      .pipe($.gulp.dest($.config.root + '/assets/js'))
-  })
+
+  $.gulp.task('js.process', function(cb) {
+    let config = $.webpackConfigFn($);
+    
+    function done(err, stats) {
+      if (err) {
+        return;
+      }
+
+      log[stats.hasErrors() ? 'error': 'info'](stats.toString({
+        colors: true
+      }));
+
+      cb();
+    }
+
+    $.webpack(config, done);
+  });
 };

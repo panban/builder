@@ -2,6 +2,7 @@
 
 module.exports = [
   './gulp/task/sass.js',
+  './gulp/task/sass.foundation.js',
   './gulp/task/serve.js',
   './gulp/task/jade.js',
   './gulp/task/watch.js',

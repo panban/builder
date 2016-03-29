@@ -1,0 +1,44 @@
+body {
+  margin: 50px;
+}
+
+.moek-library_media-group,
+.moek-library_file-group {
+  margin: 0 0 10px -10px;
+}
+
+.moek-library_media-group:after,
+.moek-library_file-group:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.moek-library_media-group:last-child,
+.moek-library_file-group:last-child {
+  margin-bottom: 0;
+}
+
+.moek-library_media,
+.moek-library_file {
+  float: left;
+  width: 110px;
+  height: 110px;
+  margin: 0 0 10px 10px;
+  background: #d9d9d9;
+}
+
+.moek-library_file {
+  text-align: center;
+  line-height: 110px;
+  background: #EEE;
+  color: #999 !important;
+  font-size: 17px;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.moek-library_media {
+  background: #ccc no-repeat center;
+  background-size: cover;
+}

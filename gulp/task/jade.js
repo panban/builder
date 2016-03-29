@@ -1,20 +1,19 @@
 'use strict';
 
 module.exports = function($) {
-  var patterns = [];
+  let patterns = [];
 
   $.gulp.task('jade', function() {
     patterns.push({match: '%=suffix=%', replace: $.dev ? '' : '.min'});
-    patterns.push({match: '%=version=%', replace: $.dev ? '' : '?rel=' + $.package.version});
+    patterns.push({match: '%=version=%', replace: $.dev ? '' : `?rel=${$.package.version}`});
 
-    return $.gulp.src($.path.template, {since: $.gulp.lastRun('jade')})
+    return $.gulp.src($.path.template, { since: $.gulp.lastRun('jade') })
       .pipe($.gp.jade({ pretty: true }))
-      .on('error', $.gp.notify.onError({
+      .on('error', $.gp.notify.onError(error => ({
         title: 'Jade',
-        message: function(error) {
-          return error.message;
-        }
-      }))
+        message:  error.message
+        })
+      ))
       .pipe($.gp.replace({ patterns: patterns, usePrefix: false }))
       .pipe($.gulp.dest($.config.root));
   });

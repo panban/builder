@@ -1,6 +1,6 @@
 {
-  "name": "my-builder",
-  "version": "0.0.2",
+  "name": "builder",
+  "version": "1.0.0",
   "ignore": [
     "**/.*",
     "node_modules",
