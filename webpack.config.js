@@ -52,9 +52,21 @@ module.exports = function($) {
     },
 
     plugins: [
-      new $.webpack.NoErrorsPlugin()
+      new $.webpack.NoErrorsPlugin(),
+      new $.webpack.DefinePlugin({
+        NODE_ENV: JSON.stringify($.dev ? 'development': 'production')
+      })
     ]
   };
+
+  if (!$.dev) {
+    config.plugins.push(
+      new $.webpack.optimize.UglifyJsPlugin({
+        warnings: false,
+        drop_console: true
+      })
+    );
+  }
 
   return config;
 };
