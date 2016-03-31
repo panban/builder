@@ -1,5 +1,8 @@
 'use strict';
 
+
+// node_modules directory resolve.
+
 module.exports = [
-  './bower_components/jquery/dist/jquery.min.js'
+  'jquery/dist/jquery.min.js'
 ];

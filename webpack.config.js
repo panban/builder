@@ -5,8 +5,13 @@ let path = require('path');
 module.exports = function($) {
 
   let config = {
+
     context: path.resolve(__dirname, 'source/js'),
-    entry: './app.js',
+
+    entry: {
+      app: './app.js',
+      foundation: $.path.foundation
+    },
 
     output: {
       path: path.join(__dirname, $.config.root, '/assets/js'),
@@ -23,7 +28,8 @@ module.exports = function($) {
 
     resolve: {
       modulesDirectories: ['node_modules'],
-      extensions: ['', '.js']
+      extensions: ['', '.js'],
+      alias: {}
     },
 
     resolveLoader: {
@@ -53,6 +59,7 @@ module.exports = function($) {
 
     plugins: [
       new $.webpack.NoErrorsPlugin(),
+      new $.webpack.optimize.CommonsChunkPlugin('foundation', 'foundation.js'),
       new $.webpack.DefinePlugin({
         NODE_ENV: JSON.stringify($.dev ? 'development': 'production')
       })

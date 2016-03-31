@@ -2,9 +2,6 @@
   "name": "builder",
   "version": "1.0.0",
   "author": "pangurban",
-  "scripts": {
-    "postinstall": "bower install"
-  },
   "devDependencies": {
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
@@ -30,5 +27,8 @@
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
     "webpack": "^1.12.14"
+  },
+  "dependencies": {
+    "jquery": "^2.2.2"
   }
 }

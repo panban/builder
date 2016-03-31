@@ -35,7 +35,6 @@ $.gulp.task('default', $.gulp.series(
     'sass',
     // 'sass.foundation',
     'jade',
-    'js.foundation',
     'js.process'
   ),
   $.gulp.parallel(
@@ -51,7 +50,6 @@ $.gulp.task('build', $.gulp.series(
     'sass',
     // 'sass.foundation',
     'jade',
-    'js.foundation',
     'js.process'
   )
 ));
