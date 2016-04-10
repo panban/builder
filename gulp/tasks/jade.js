@@ -1,9 +1,9 @@
 'use strict';
 
-module.exports = function($) {
+module.exports = () => {
   let patterns = [];
 
-  $.gulp.task('jade', function() {
+  $.gulp.task('jade', () => {
     patterns.push({match: '%=suffix=%', replace: $.dev ? '' : '.min'});
     patterns.push({match: '%=version=%', replace: $.dev ? '' : `?rel=${$.package.version}`});
 

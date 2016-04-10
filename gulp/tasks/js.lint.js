@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function($) {
-  $.gulp.task('js.lint', function() {
+module.exports = () => {
+  $.gulp.task('js.lint', () => {
     return $.gulp.src($.path.app)
       .pipe($.gp.eslint())
       .pipe($.gp.eslint.format());

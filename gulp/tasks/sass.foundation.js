@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = function($) {
+module.exports = () => {
   let options = {
     includePaths: $.path.sass.foundation
   };
 
-  $.gulp.task('sass.foundation', function() {
+  $.gulp.task('sass.foundation', () => {
     return $.gulp.src('./source/style/foundation.scss')
       .pipe($.gp.sass(options)).on('error', $.gp.notify.onError({ title: 'Style' }))
       .pipe($.gp.if(!$.dev, $.gp.csso()))

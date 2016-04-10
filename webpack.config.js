@@ -1,11 +1,42 @@
 'use strict';
 
-let path = require('path');
+const path = require('path');
+const webpack = require('webpack');
 
-module.exports = function($) {
+let modulesDirectories = ['node_modules'];
+let inputPath = path.join(__dirname, './source/js/');
 
-  let config = {
+let plugins = [
+  new webpack.NoErrorsPlugin(),
+  new webpack.optimize.CommonsChunkPlugin('foundation', 'foundation.js'),
+  new webpack.DefinePlugin({
+    NODE_ENV: JSON.stringify($.dev ? 'development': 'production')
+  })
+];
+let loaders = [
+  {test: /\.html?$/, loader: 'ngtemplate?relativeTo=' + inputPath + '!html'},
+  { test: /\.json$/, loader: 'json' },
+  {
+    test: /\.js$/,
+    include: path.join(__dirname, 'source/js'),
+    loader: 'babel',
+    query: {
+      presets: ['es2015'],
+      plugins: ['transform-runtime']
+    }
+  }
+];
 
+if (!$.dev) {
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      warnings: false,
+      drop_console: true
+    })
+  );
+}
+
+module.exports = {
     context: path.resolve(__dirname, 'source/js'),
 
     entry: {
@@ -26,54 +57,23 @@ module.exports = function($) {
 
     devtool: $.dev ? 'cheap-module-inline-source-map' : null,
 
-    resolve: {
-      modulesDirectories: ['node_modules'],
-      extensions: ['', '.js'],
-      alias: {}
-    },
-
-    resolveLoader: {
-      modulesDirectories: ['node_modules'],
-      moduleTemplate: ['*-loader', '*'],
-      extensions: ['', '.js']
-    },
-
     module: {
-
-      loaders: [
-        { test: /\.html$/, loader: 'raw' },
-        { test: /\.json$/, loader: 'json' },
-        {
-          test: /\.js$/,
-          include: path.join(__dirname, 'source/js'),
-          loader: 'babel',
-          query: {
-            presets: ['es2015'],
-            plugins: ['transform-runtime']
-          }
-        }
-      ],
-
+      loaders,
       noParse: []
     },
 
-    plugins: [
-      new $.webpack.NoErrorsPlugin(),
-      new $.webpack.optimize.CommonsChunkPlugin('foundation', 'foundation.js'),
-      new $.webpack.DefinePlugin({
-        NODE_ENV: JSON.stringify($.dev ? 'development': 'production')
-      })
-    ]
-  };
+    plugins,
 
-  if (!$.dev) {
-    config.plugins.push(
-      new $.webpack.optimize.UglifyJsPlugin({
-        warnings: false,
-        drop_console: true
-      })
-    );
-  }
+    resolve: {
+      modulesDirectories,
+      extensions: ['', '.js'],
+      alias: {
+      }
+    },
 
-  return config;
+    resolveLoader: {
+      modulesDirectories,
+      moduleTemplate: ['*-loader', '*'],
+      extensions: ['', '.js']
+    }
 };

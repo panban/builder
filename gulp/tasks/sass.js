@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = function($) {
+module.exports = () => {
   let options = {
     includePaths: $.path.sass.app
   };
 
-  $.gulp.task('sass', function() {
+  $.gulp.task('sass', () => {
     return $.gulp.src('./source/style/app.scss')
       .pipe($.gp.if($.dev, $.gp.sourcemaps.init()))
       .pipe($.gp.sass(options)).on('error', $.gp.notify.onError({ title: 'Style' }))

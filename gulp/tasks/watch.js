@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function($) {
-  $.gulp.task('watch', function() {
+module.exports = () => {
+  $.gulp.task('watch', () => {
     $.gulp.watch('./source/style/**/*.scss', $.gulp.series('sass'));
     $.gulp.watch('./source/template/**/*.jade', $.gulp.series('jade'));
   });

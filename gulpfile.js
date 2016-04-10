@@ -2,21 +2,20 @@
 
 // PROJECT
 // - - - - - - - - - - - - - - -
-let $ = {
+global.$ = {
   dev: true,
   package: require('./package.json'),
   config: require('./gulp/config'),
   path: {
-    app: require('./gulp/path.app'),
-    task: require('./gulp/path.tasks'),
-    foundation: require('./gulp/path.foundation'),
-    template: require('./gulp/path.template'),
-    sass: require('./gulp/path.sass')
+    app: require('./gulp/paths/app.js'),
+    tasks: require('./gulp/paths/tasks.js'),
+    foundation: require('./gulp/paths/foundation.js'),
+    template: require('./gulp/paths/template.js'),
+    sass: require('./gulp/paths/sass.js')
   },
   gulp: require('gulp'),
   rimraf: require('rimraf'),
   webpack: require('webpack'),
-  webpackConfigFn: require('./webpack.config'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')({
     rename: {
@@ -27,7 +26,7 @@ let $ = {
 
 // TASKS
 // - - - - - - - - - - - - - - -
-$.path.task.forEach(taskPath => require(taskPath)($));
+$.path.tasks.forEach(taskPath =>  require(taskPath)());
 
 $.gulp.task('default', $.gulp.series(
   'clean',

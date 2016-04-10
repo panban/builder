@@ -4,5 +4,5 @@
 // node_modules directory resolve.
 
 module.exports = [
-  'jquery/dist/jquery.min.js'
+  'jquery/dist/jquery.js'
 ];
