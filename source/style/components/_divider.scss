@@ -1,14 +1,14 @@
-.divider{
+.#{$prefix}divider {
   display: table;
   width: 100%;
   
   &_base,
-  &_side{
+  &_side {
     display: table-cell;
     vertical-align: top;
   }
 
-  &_side{
+  &_side {
     width: 1%;
   }
 
@@ -16,7 +16,7 @@
     vertical-align: middle;
 
     &_base,
-    &_side{
+    &_side {
       vertical-align: middle;
     }
   }

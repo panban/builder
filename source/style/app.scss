@@ -1,34 +1,34 @@
 // ------------------------------------------
-  // Utils
+// Utils
 //-------------------------------------------
-@import
-  "utils/variables",
-  "utils/mixins",
-  "utils/placeholders",
-  "utils/functions";
+
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/placeholders';
+@import 'utils/functions';
 
 // ------------------------------------------
-  // Base
+// Base
 //-------------------------------------------
-@import
-  "base/myreset",
-  "base/fonts";
+
+@import 'base/myreset';
+@import 'base/fonts';
 
 // ------------------------------------------
-  // Layout
+// Layout
 // ------------------------------------------
-@import
-  "layout/tools",
-  "layout/grid";
+
+@import 'layout/tools';
+@import 'layout/grid';
 
 // ------------------------------------------
-  // Modules
+// Modules
 // ------------------------------------------
-@import
-  "components/divider";
+
+@import 'components/divider';
 
 // ------------------------------------------
-  // Pages
+// Pages
 //-------------------------------------------
-@import
-  "pages/index";
+
+@import 'pages/index';

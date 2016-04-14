@@ -1,7 +1,10 @@
+$prefix: '';
+
 // -----------------------------------------
-  // Layout Breakpoints
+// Layout Breakpoints
 // -----------------------------------------
-$gridGutter: 10;
+
+$grid-gutter: 10;
 $breakpoints: (
   'medium': (min-width: 800px),
   'large': (min-width: 1000px),
@@ -10,17 +13,20 @@ $breakpoints: (
 
 
 // -----------------------------------------
-  // Font Sizes
+// Font Sizes
 // -----------------------------------------
-$baseTextSize: 16px;
+
+$base-text-size: 16px;
 
 
 // -----------------------------------------
-  // Font Families
+// Font Families
 // -----------------------------------------
-$baseFont: Helvetica, Arial, sans-serif;
+
+$base-font: Helvetica, Arial, sans-serif;
 
 // -----------------------------------------
-  // Color
+// Color
 // -----------------------------------------
-$baseTextColor: #262626;
+
+$base-text-color: #262626;

@@ -1,11 +1,11 @@
-.left{
+.#{$prefix}left {
   float: left;
 }
 
-.right{
+.#{$prefix}right {
   float: right;
 }
 
-.clear{
+.#{$prefix}clear {
   @extend %clearfix;
 }

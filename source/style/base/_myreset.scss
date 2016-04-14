@@ -8,54 +8,83 @@ html {
   box-sizing: inherit;
 }
 
-body{
-  // font: $baseTextSize/1 $baseFont;
+body {
+  color: $base-text-color;
+  font: $base-text-size $base-font;
   background: #fff;
-  // color: $baseTextColor;
+  line-height: 1;
 }
 
-html, body{
+html,
+body {
   min-height: 100%;
 }
 
-a{
+a {
   background: transparent; // IE10
 }
 
-article, aside, details,
-figcaption, figure, footer,
-header, hgroup, main,
-nav, section, summary{
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
   display: block;
 }
 
-p, ul, ol, dl, dd,
-h1, h2, h3, h4, h5, h6,
-blockquote, fieldset{
+p,
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+fieldset {
   margin: 0;
 }
 
-ul, ol, fieldset{
+ul,
+ol,
+fieldset {
   padding: 0;
 }
 
 
-fieldset, img{
+fieldset,
+img {
   border: 0;
 }
 
-li{
+li {
   list-style: none;
 }
 
 // ------------------------------------------
-  // Typography
+// Typography
 //-------------------------------------------
-h1, h2, h3, h4, h5, h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font: inherit;
 }
 
-textarea, select{
+textarea,
+select {
   color: inherit;
   font: inherit;
 }
@@ -64,26 +93,28 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-input[type="radio"]{
-  cursor: pointer;
-  padding: 0;
+input[type="radio"] {
   color: inherit;
+  cursor: pointer;
   font: inherit;
+  padding: 0;
 }
 
 
 // ------------------------------------------
-  // Tables
+// Tables
 //-------------------------------------------
-table{
+
+table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 
 // ------------------------------------------
-  // Other
+// Other
 //-------------------------------------------
-q{
+
+q {
   quotes: '«' '»';
 }
