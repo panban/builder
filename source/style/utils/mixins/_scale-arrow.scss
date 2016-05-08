@@ -12,30 +12,30 @@
 // @param {Color} $color
 // @return {Properties}
 
-@mixin scaleArrow($direction, $height, $width, $color) {
-  $pxH: $height + px;
-  $pxW: $width + px;
+@mixin scale-arrow($direction, $height, $width, $color) {
+  $px-h: $height + px;
+  $px-w: $width + px;
   // $remSize: ($size /10)+rem;
   
   #{width}: 0;
   #{height}: 0;
-  border: $pxH solid transparent;
+  border: $px-h solid transparent;
   // border: $remSize solid transparent;
 
-  @if $direction == "left"{
-    border-right: $pxW solid $color;
+  @if $direction == 'left' {
+    border-right: $px-w solid $color;
     border-left-width: 0;
 
-  }@else if $direction == "right"{
-    border-left: $pxW solid $color;
+  } @else if $direction == 'right' {
+    border-left: $px-w solid $color;
     border-right-width: 0;
 
-  }@else if $direction == "up"{
-    border-bottom: $pxW solid $color;
+  } @else if $direction == 'up' {
+    border-bottom: $px-w solid $color;
     border-top-width: 0;
 
-  }@else if $direction == "down"{
-    border-top: $pxW solid $color;
+  } @else if $direction == 'down' {
+    border-top: $px-w solid $color;
     border-bottom-width: 0;
   }
 }

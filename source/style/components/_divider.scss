@@ -1,7 +1,7 @@
 .#{$prefix}divider {
   display: table;
   width: 100%;
-  
+
   &_base,
   &_side {
     display: table-cell;
@@ -12,7 +12,7 @@
     width: 1%;
   }
 
-  &--middle{
+  &--middle {
     vertical-align: middle;
 
     &_base,
