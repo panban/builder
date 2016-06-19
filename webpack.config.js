@@ -2,21 +2,29 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const validate = require('webpack-validator');
 
-let modulesDirectories = ['node_modules'];
+let nodeModulesDirectories = path.join(__dirname, 'node_modules');
+let modulesDirectories = [nodeModulesDirectories];
 let inputPath = path.join(__dirname, './source/js/');
 
 let plugins = [
+
   new webpack.NoErrorsPlugin(),
+
   new webpack.optimize.CommonsChunkPlugin('foundation', 'foundation.js'),
-  new webpack.DefinePlugin({
-    NODE_ENV: JSON.stringify($.dev ? 'development': 'production')
-  })
+
+  new webpack.DefinePlugin({ NODE_ENV: JSON.stringify($.dev ? '__DEV__': '__PROD__') }),
+
+  new webpack.ProvidePlugin({ $: 'jquery' })
 ];
 
 let loaders = [
+
   { test: /\.html$/, loader: 'ngtemplate?relativeTo=' + inputPath + '!html' },
+
   { test: /\.json$/, loader: 'json' },
+
   {
     test: /\.js$/,
     include: path.join(__dirname, 'source/js'),
@@ -37,17 +45,18 @@ if (!$.dev) {
   );
 }
 
-module.exports = {
+let webpackConfig = {
+
     context: path.resolve(__dirname, 'source/js'),
 
     entry: {
       app: './app.js',
-      foundation: $.path.foundation
+      foundation: []
     },
 
     output: {
       path: path.join(__dirname, $.config.root, '/assets/js'),
-      filename: "app.js"
+      filename: '[name].js'
     },
 
     watch: $.dev,
@@ -56,7 +65,7 @@ module.exports = {
       aggregateTimeout: 100
     },
 
-    devtool: $.dev ? 'cheap-module-inline-source-map' : null,
+    devtool: $.dev ? 'inline-source-map' : undefined,
 
     module: {
       loaders,
@@ -68,13 +77,23 @@ module.exports = {
     resolve: {
       modulesDirectories,
       extensions: ['', '.js'],
-      alias: {
-      }
+      alias: {}
     },
 
     resolveLoader: {
       modulesDirectories,
-      moduleTemplate: ['*-loader', '*'],
+      moduleTemplates: ['*-loader', '*'],
       extensions: ['', '.js']
     }
 };
+
+$.path.foundation.forEach(dependency => {
+  var dependencyName = dependency.split('/')[0];
+  var dependencyPath = path.resolve(nodeModulesDirectories, dependency);
+
+  webpackConfig.resolve.alias[dependencyName] = dependencyPath;
+  webpackConfig.module.noParse.push(dependencyPath);
+  webpackConfig.entry.foundation.push(dependencyName)
+});
+
+module.exports = validate(webpackConfig);

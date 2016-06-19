@@ -1,8 +1,12 @@
 'use strict';
 
-
-// node_modules directory resolve.
+/**
+ * Array of paths to executable files. Relatively of 'node_modules' directory.
+ * @module gulp/path/foundation
+ * @type {String[]}
+ */
 
 module.exports = [
-  'jquery/dist/jquery.js'
+  'angular/angular.min.js',
+  'jquery/dist/jquery.min.js'
 ];
