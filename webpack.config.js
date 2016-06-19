@@ -13,8 +13,9 @@ let plugins = [
     NODE_ENV: JSON.stringify($.dev ? 'development': 'production')
   })
 ];
+
 let loaders = [
-  {test: /\.html?$/, loader: 'ngtemplate?relativeTo=' + inputPath + '!html'},
+  { test: /\.html$/, loader: 'ngtemplate?relativeTo=' + inputPath + '!html' },
   { test: /\.json$/, loader: 'json' },
   {
     test: /\.js$/,
