@@ -1,5 +1,6 @@
 files:
-  include: '**/*.s+(a|c)ss'
+  include: '**/*.scss'
+  ignore: 'source/style/base/_fonts.scss'
 
 options:
   formatter: stylish
@@ -74,7 +75,7 @@ rules:
     - 1
     - max-depth: 3
 
-  no-color-keyword: 1
+  no-color-keywords: 1
 
   no-color-literals: 0
 
