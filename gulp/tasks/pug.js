@@ -3,18 +3,18 @@
 module.exports = () => {
   let patterns = [];
 
-  $.gulp.task('jade', () => {
+  $.gulp.task('pug', () => {
     patterns.push({match: '%=suffix=%', replace: $.dev ? '' : '.min'});
     patterns.push({match: '%=version=%', replace: $.dev ? '' : `?rel=${$.package.version}`});
 
-    return $.gulp.src($.path.template, { since: $.gulp.lastRun('jade') })
-      .pipe($.gp.jade({ pretty: true }))
+    return $.gulp.src('./source/template/index.pug')
+      .pipe($.gp.pug({ pretty: true }))
       .on('error', $.gp.notify.onError(error => ({
-        title: 'Jade',
+        title: 'Pug',
         message:  error.message
         })
       ))
-      .pipe($.gp.replace({ patterns: patterns, usePrefix: false }))
+      .pipe($.gp.replaceTask({ patterns: patterns, usePrefix: false }))
       .pipe($.gulp.dest($.config.root));
   });
 };

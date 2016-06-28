@@ -1,3 +1,3 @@
 module.exports = [
-  './source/template/**/[^_]*.jade'
+  './source/template/**/[^_]*.pug'
 ];

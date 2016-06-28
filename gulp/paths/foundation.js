@@ -7,6 +7,6 @@
  */
 
 module.exports = [
-  'angular/angular.min',
+  'angular/angular.js',
   'jquery/dist/jquery.min.js'
 ];

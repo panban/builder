@@ -19,7 +19,7 @@ global.$ = {
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')({
     rename: {
-      'gulp-replace-task': 'replace'
+      'gulp-replace-task': 'replaceTask'
     }
   })
 };
@@ -33,7 +33,7 @@ $.gulp.task('default', $.gulp.series(
   $.gulp.parallel(
     'sass',
     // 'sass:foundation',
-    'jade',
+    'pug',
     'js:process',
     'copy:fonts'
   ),
@@ -49,7 +49,7 @@ $.gulp.task('build', $.gulp.series(
   $.gulp.parallel(
     'sass',
     // 'sass:foundation',
-    'jade',
+    'pug',
     'js:process',
     'copy:fonts'
   )

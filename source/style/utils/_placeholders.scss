@@ -10,42 +10,8 @@
  *    http://nicolasgallagher.com/micro-clearfix-hack/
  */
 
-%clearfix {
-
-  &:after {
-    content: ' '; // 1
-    display: table; // 2
-    clear: both;
-  }
-}
-
-
-// ------------------------------------------
-// justify-content
-//-------------------------------------------
-
-%justify-content {
-  text-align: justify;
-  cursor: default;
-
-  &:after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-  }
-}
-
-
-// ------------------------------------------
-// align-v
-//-------------------------------------------
-
-%align-v {
-
-  &:after {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-  }
+%clearfix :after {
+  content: ' '; // 1
+  display: table; // 2
+  clear: both;
 }
