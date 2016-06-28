@@ -1,25 +1,3 @@
-html {
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-body {
-  color: $base-text-color;
-  font: $base-text-size $base-font;
-  background: #fff;
-  line-height: 1;
-}
-
-html,
-body {
-  min-height: 100%;
-}
-
 a {
   background: transparent; // IE10
 }

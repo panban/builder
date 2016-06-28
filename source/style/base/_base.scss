@@ -1,0 +1,19 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font: $font-regular $font-size-base $font-family-1;
+  color: $color-text-base;
+}
+
+html,
+body {
+  min-height: 100%;
+}

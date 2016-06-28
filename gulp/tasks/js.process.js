@@ -6,7 +6,7 @@ const cwd = process.cwd();
 
 module.exports = () => {
 
-  $.gulp.task('js.process', cb => {
+  $.gulp.task('js:process', cb => {
     let config = require(`${cwd}/webpack.config.js`);
 
     function done(err, stats) {
