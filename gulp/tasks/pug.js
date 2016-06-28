@@ -7,7 +7,7 @@ module.exports = () => {
     patterns.push({match: '%=suffix=%', replace: $.dev ? '' : '.min'});
     patterns.push({match: '%=version=%', replace: $.dev ? '' : `?rel=${$.package.version}`});
 
-    return $.gulp.src('./source/template/index.pug')
+    return $.gulp.src('./source/template/pages/**')
       .pipe($.gp.pug({ pretty: true }))
       .on('error', $.gp.notify.onError(error => ({
         title: 'Pug',

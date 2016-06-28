@@ -1,7 +1,13 @@
+include ../mixins/index.pug
+
+block variables
+
 doctype html
 html
-  include common/_head.pug
+  include ../common/head.pug
+
   body
-    <!--[if lt IE 7]>
+    <!--[if lt IE 9]>
     <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
     <![endif]-->
+    block content

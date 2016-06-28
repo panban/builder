@@ -7,13 +7,15 @@
 @import 'utils/placeholders';
 @import 'utils/functions';
 
+
 // ------------------------------------------
 // Base
 //-------------------------------------------
 
-@import 'base/myreset';
+@import 'base/reset';
 @import 'base/base';
 @import 'base/fonts';
+
 
 // ------------------------------------------
 // Layout
@@ -22,14 +24,9 @@
 @import 'layout/tools';
 @import 'layout/grid';
 
-// ------------------------------------------
-// Modules
-// ------------------------------------------
-
-@import 'components/divider';
 
 // ------------------------------------------
-// Pages
-//-------------------------------------------
+// Common
+// ------------------------------------------
 
-@import 'pages/index';
+@import 'common/divider';

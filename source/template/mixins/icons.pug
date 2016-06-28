@@ -1,0 +1,11 @@
+//-
+  Mixin to insert icons from the sprite
+  @param {string} name - id of element
+  @param {string|Array<string>} [mods] - additional classes
+  @example
+  +icon('mail', ['icon-20', 'icon-light'])
+
+mixin icon(name, mods)
+  - mods = mods || ''
+  svg(class="icon icon-" + name class=mods)
+    use(xlink:href="/assets/sprite/sprite.svg#" + name)
