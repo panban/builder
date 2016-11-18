@@ -1,22 +1,20 @@
 'use strict';
 
-const log = require('gulplog');
 const webpack = require('webpack');
+const gutil = require('gulp-util');
 const cwd = process.cwd();
 
 module.exports = () => {
 
   $.gulp.task('js:process', cb => {
-    let config = require(`${cwd}/webpack.config.js`);
+    const config = require(`${cwd}/webpack.config.js`);
 
-    function done(err, stats) {
-      if (err) {
-        return;
+    function done(error, stats) {
+      if (error) {
+        throw new gutil.PluginError('webpack', error);
       }
 
-      log[stats.hasErrors() ? 'error': 'info'](stats.toString({
-        colors: true
-      }));
+      gutil.log('[webpack]', stats.toString({ colors: true }));
 
       cb();
     }
