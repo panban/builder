@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = () => {
-  let options = {
+  const options = {
     includePaths: $.path.sass.foundation
   };
 
@@ -11,5 +11,5 @@ module.exports = () => {
       .pipe($.gp.if(!$.dev, $.gp.csso()))
       .pipe($.gp.if(!$.dev, $.gp.rename({ suffix: '.min' })))
       .pipe($.gulp.dest(`${$.config.root}/assets/css`));
-  })
+  });
 };

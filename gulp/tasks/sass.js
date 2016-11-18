@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = () => {
-  let options = {
+  const options = {
     includePaths: $.path.sass.app
   };
 
@@ -15,5 +15,5 @@ module.exports = () => {
       .pipe($.gp.if(!$.dev, $.gp.rename({ suffix: '.min' })))
       .pipe($.gulp.dest(`${$.config.root}/assets/css`))
       .pipe($.browserSync.stream());
-  })
+  });
 };

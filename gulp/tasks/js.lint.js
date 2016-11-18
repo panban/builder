@@ -5,5 +5,5 @@ module.exports = () => {
     return $.gulp.src($.path.app)
       .pipe($.gp.eslint())
       .pipe($.gp.eslint.format());
-  })
+  });
 };
