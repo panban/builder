@@ -29,28 +29,28 @@ $.path.tasks.forEach(taskPath =>  require(taskPath)());
 
 $.gulp.task('default', $.gulp.series(
   'clean',
+  'webpack:foundation',
   $.gulp.parallel(
     'sass',
-    // 'sass:foundation',
     'pug',
-    'js:process',
+    'webpack:app',
     'copy:fonts',
     'sprite:svg'
   ),
   $.gulp.parallel(
     'watch',
-    'serve'
+    'server'
   )
 ));
 
 $.gulp.task('build', $.gulp.series(
   cb => {$.dev = false; cb()},
   'clean',
+  'webpack:foundation',
   $.gulp.parallel(
     'sass',
-    // 'sass:foundation',
     'pug',
-    'js:process',
+    'webpack:app',
     'copy:fonts',
     'sprite:svg'
   )

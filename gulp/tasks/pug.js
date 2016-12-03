@@ -14,6 +14,6 @@ module.exports = () => {
         message: error.message
       })))
       .pipe($.gp.replaceTask({ patterns, usePrefix: false }))
-      .pipe($.gulp.dest($.config.root));
+      .pipe($.gulp.dest($.config.output));
   });
 };

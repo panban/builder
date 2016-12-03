@@ -13,7 +13,7 @@ module.exports = () => {
       .pipe($.gp.if($.dev, $.gp.sourcemaps.write()))
       .pipe($.gp.if(!$.dev, $.gp.csso()))
       .pipe($.gp.if(!$.dev, $.gp.rename({ suffix: '.min' })))
-      .pipe($.gulp.dest(`${$.config.root}/assets/css`))
+      .pipe($.gulp.dest(`${$.config.output}/assets/css`))
       .pipe($.browserSync.stream());
   });
 };

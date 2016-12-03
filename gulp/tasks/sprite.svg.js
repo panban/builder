@@ -26,6 +26,6 @@ module.exports = () => {
       .pipe($.gp.cheerio(cheerioConfig))
       .pipe($.gp.replace('&gt;', '>'))
       .pipe($.gp.svgSprite(svgSpriteConfig))
-      .pipe($.gulp.dest($.config.root + '/assets/sprite'));
+      .pipe($.gulp.dest($.config.output + '/assets/sprite'));
   });
 };

@@ -2,6 +2,6 @@
 
 module.exports = () => {
   $.gulp.task('clean', cb => {
-    return $.rimraf($.config.root, cb);
+    return $.rimraf($.config.output, cb);
   });
 };
