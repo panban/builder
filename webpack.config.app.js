@@ -1,7 +1,6 @@
 'use strict';
 
 const webpack = require('webpack');
-const webpack = require('webpack');
 const path = require('path');
 
 const modulesDirectories = [`${__dirname}/node_modules`];
