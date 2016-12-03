@@ -27,7 +27,7 @@ const config = {
   context: input,
 
   entry: {
-    app: './app.js',
+    app: './index.js',
   },
 
   output: {
@@ -60,8 +60,8 @@ const config = {
 
   plugins: [
     new webpack.DllReferencePlugin({
-      context: '.',
-      manifest: require(`${output}/foundation-manifest.json`)
+      context: process.cwd(),
+      manifest: require(`${$.config.temp}/foundation-manifest.json`)
     }),
 
     new webpack.NoErrorsPlugin(),

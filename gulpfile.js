@@ -9,11 +9,11 @@ global.$ = {
   path: {
     app: require('./gulp/paths/app.js'),
     tasks: require('./gulp/paths/tasks.js'),
-    foundation: require('./gulp/paths/foundation.js'),
+    dll: require('./gulp/paths/dll.js'),
     sass: require('./gulp/paths/sass.js')
   },
   gulp: require('gulp'),
-  rimraf: require('rimraf'),
+  del: require('del'),
   webpack: require('webpack'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')({
@@ -29,7 +29,7 @@ $.path.tasks.forEach(taskPath =>  require(taskPath)());
 
 $.gulp.task('default', $.gulp.series(
   'clean',
-  'webpack:foundation',
+  'webpack:dll',
   $.gulp.parallel(
     'sass',
     'pug',
@@ -46,7 +46,7 @@ $.gulp.task('default', $.gulp.series(
 $.gulp.task('build', $.gulp.series(
   cb => {$.dev = false; cb()},
   'clean',
-  'webpack:foundation',
+  'webpack:dll',
   $.gulp.parallel(
     'sass',
     'pug',

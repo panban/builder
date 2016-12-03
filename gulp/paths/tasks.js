@@ -10,5 +10,5 @@ module.exports = [
   './gulp/tasks/copy.fonts.js',
   './gulp/tasks/sprite.svg.js',
   './gulp/tasks/webpack.app.js',
-  './gulp/tasks/webpack.foundation.js'
+  './gulp/tasks/webpack.dll.js'
 ];

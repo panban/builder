@@ -6,7 +6,7 @@ const output = `${__dirname}/build/assets/js`;
 const config = {
 
   entry: {
-    foundation: $.path.foundation
+    foundation: $.path.dll
   },
 
   output: {
@@ -15,8 +15,8 @@ const config = {
     library: '__[name]__'
   },
 
-  plugins: [ new webpack.DllPlugin({
-    path: `${output}/[name]-manifest.json`,
+  plugins: [new webpack.DllPlugin({
+    path: `${$.config.temp}/[name]-manifest.json`,
     name: '__[name]__'
   })]
 };
