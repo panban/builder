@@ -3,24 +3,8 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const modulesDirectories = [`${__dirname}/node_modules`];
 const input = path.join(__dirname, './source/js/');
 const output = path.join(__dirname, $.config.output, '/assets/js');
-
-const loaders = [
-
-  { test: /\.json$/, loader: 'json' },
-
-  {
-    test: /\.jsx?$/,
-    include: input,
-    loader: 'babel',
-    query: {
-      presets: ['es2015', 'react'],
-      plugins: ['transform-runtime']
-    }
-  }
-];
 
 const config = {
 
@@ -44,18 +28,21 @@ const config = {
   devtool: $.dev ? 'inline-source-map' : undefined,
 
   module: {
-    loaders
+    rules: [
+      {
+        test: /\.jsx?$/,
+        include: input,
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015', 'react'],
+          plugins: ['transform-runtime']
+        }
+      }
+    ]
   },
 
   resolve: {
-    modulesDirectories,
-    extensions: ['', '.js', '.jsx'],
-  },
-
-  resolveLoader: {
-    modulesDirectories,
-    moduleTemplates: ['*-loader', '*'],
-    extensions: ['', '.js']
+    extensions: ['.js', '.jsx'],
   },
 
   plugins: [
