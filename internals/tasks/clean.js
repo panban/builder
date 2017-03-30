@@ -2,6 +2,6 @@
 
 module.exports = () => {
   $.gulp.task('clean', () => {
-    return $.del([ $.config.output, $.config.temp ]);
+    return $.del([ $.config.output, `${process.cwd()}/temp` ]);
   });
 };

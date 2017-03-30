@@ -3,8 +3,8 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const input = path.join(__dirname, './source/js/');
-const output = path.join(__dirname, $.config.output, '/assets/js');
+const input = path.join(process.cwd(), './source/js/');
+const output = path.join(process.cwd(), $.config.output, '/assets/js');
 
 const config = {
 
@@ -48,7 +48,7 @@ const config = {
   plugins: [
     new webpack.DllReferencePlugin({
       context: process.cwd(),
-      manifest: require(`${$.config.temp}/foundation-manifest.json`)
+      manifest: require(`${process.cwd()}/temp/foundation-manifest.json`)
     }),
 
     new webpack.NoErrorsPlugin(),

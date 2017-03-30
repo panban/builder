@@ -5,12 +5,12 @@
 global.$ = {
   dev: true,
   package: require('./package.json'),
-  config: require('./gulp/config'),
+  config: require('./internals/config'),
   path: {
-    app: require('./gulp/paths/app.js'),
-    tasks: require('./gulp/paths/tasks.js'),
-    dll: require('./gulp/paths/dll.js'),
-    sass: require('./gulp/paths/sass.js')
+    app: require('./internals/paths/app.js'),
+    tasks: require('./internals/paths/tasks.js'),
+    dll: require('./internals/paths/dll.js'),
+    sass: require('./internals/paths/sass.js')
   },
   gulp: require('gulp'),
   del: require('del'),

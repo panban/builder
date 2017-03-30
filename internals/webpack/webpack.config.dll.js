@@ -1,7 +1,7 @@
 'use strict';
 
 const webpack = require('webpack');
-const output = `${__dirname}/build/assets/js`;
+const output = `${process.cwd()}/build/assets/js`;
 
 const config = {
 
@@ -16,7 +16,7 @@ const config = {
   },
 
   plugins: [new webpack.DllPlugin({
-    path: `${$.config.temp}/[name]-manifest.json`,
+    path: `${process.cwd()}/temp/[name]-manifest.json`,
     name: '__[name]__'
   })]
 };

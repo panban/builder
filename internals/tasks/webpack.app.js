@@ -6,7 +6,7 @@ const gutil = require('gulp-util');
 module.exports = () => {
 
   $.gulp.task('webpack:app', cb => {
-    const config = require(`${process.cwd()}/webpack.config.app.js`);
+    const config = require(`${process.cwd()}/internals/webpack/webpack.config.app.js`);
 
     function done(error, stats) {
       if (error) {
