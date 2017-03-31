@@ -51,7 +51,7 @@ const config = {
       manifest: require(`${process.cwd()}/temp/foundation-manifest.json`)
     }),
 
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
 
     new webpack.DefinePlugin({ NODE_ENV: JSON.stringify($.dev ? '__DEV__' : '__PROD__') }),
   ]
