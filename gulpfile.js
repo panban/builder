@@ -7,7 +7,6 @@ global.$ = {
   package: require('./package.json'),
   config: require('./internals/config'),
   path: {
-    app: require('./internals/paths/app.js'),
     tasks: require('./internals/paths/tasks.js'),
     dll: require('./internals/paths/dll.js'),
     sass: require('./internals/paths/sass.js')
