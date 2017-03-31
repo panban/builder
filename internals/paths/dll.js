@@ -1,8 +1,7 @@
 'use strict';
 
 /**
- * Array of vendor libraries
- * @module gulp/path/foundation
+ * Array of third-party libraries
  * @type {String[]}
  */
 
